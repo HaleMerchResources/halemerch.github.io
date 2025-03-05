@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Fee Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        select, p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Shipping Fee Calculator</h2>
+    
+    <label for="location">Delivery Location:</label>
+    <select id="location" onchange="calculateShipping()">
+        <option value="">Select Location</option>
+        <option value="metro">Within Metro Manila</option>
+        <option value="outside">Outside of Metro Manila</option>
+    </select>
+    
+    <br>
+    
+    <label for="shirts"># of Shirts Ordered:</label>
+    <select id="shirts" onchange="calculateShipping()">
+        <option value="">Select Quantity</option>
+        <option value="1-2">1-2 Shirts</option>
+        <option value="3-4">3-4 Shirts</option>
+        <option value="5-6">5-6 Shirts</option>
+    </select>
+    
+    <p>Shipping fee is <strong id="shippingFee">₱0.00</strong></p>
+    
+    <script>
+        function calculateShipping() {
+            const location = document.getElementById("location").value;
+            const shirts = document.getElementById("shirts").value;
+            const shippingFee = document.getElementById("shippingFee");
+            
+            let fee = 0;
+            
+            if (location === "metro") {
+                if (shirts === "1-2") fee = 100;
+                else if (shirts === "3-4") fee = 150;
+                else if (shirts === "5-6") fee = 200;
+            } else if (location === "outside") {
+                if (shirts === "1-2") fee = 150;
+                else if (shirts === "3-4") fee = 200;
+                else if (shirts === "5-6") fee = 250;
+            }
+            
+            shippingFee.textContent = `₱${fee.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
