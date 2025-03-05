@@ -6,141 +6,159 @@
     <title>Shipping Fee Cost</title>
     <style>
         body {
-            font-family: Inter, sans-serif;
-            padding: 20px;
+           font-family: Inter, sans-serif;
+           padding: 20px;
+} 
         }
         select, p {
             margin-top: 10px;
             font-size: 16px;
-            display: block;
-            text-align: center;
         }
         label {
         	font-weight:bold;
-            display: block;
-            text-align: center;
+            color: white;
         }
         select {
             color: white;
-            height: 2.5em;
-            min-width: 100%;
-    		max-width: 100%;
+            height: 100%;
             background-color: #24243d;
             border-color: #b8bdc9;
             margin-bottom: 1em;
+            padding:0.5em;
+            border-radius: 4px;
         }
-        
+        p {
+        display: block;
+        text-align: center;
+        }
+        .label-dropdown {
+          display:flex;
+          justify-items:center;
+        }
+        .content {
+        margin: auto;
+        }
     </style>
     <link id="custom-font" type="text/css" rel="stylesheet" href="//cdn.jotfor.ms/fonts/?family=Inter">
 </head>
 <body>
-    
-<label for="location">Delivery Location:</label>
-<select id="location" onchange="calculateShipping()">
-    <option value="">Select Location</option>
-    
-    <optgroup label="Greater Manila Area">
-        <option value="metro_manila">Metro Manila</option>
-        <option value="bulacan">Bulacan</option>
-        <option value="cavite">Cavite</option>
-        <option value="laguna">Laguna</option>
-        <option value="rizal">Rizal</option>
-    </optgroup>
 
-    <optgroup label="Luzon">
-        <option value="abra">Abra</option>
-        <option value="apayao">Apayao</option>
-        <option value="aurora">Aurora</option>
-        <option value="bataan">Bataan</option>
-        <option value="batangas">Batangas</option>
-        <option value="batanes">Batanes</option>
-        <option value="benguet">Benguet</option>
-        <option value="cagayan">Cagayan</option>
-        <option value="camarines_norte">Camarines Norte</option>
-        <option value="camarines_sur">Camarines Sur</option>
-        <option value="catanduanes">Catanduanes</option>
-        <option value="ifugao">Ifugao</option>
-        <option value="ilocos_norte">Ilocos Norte</option>
-        <option value="ilocos_sur">Ilocos Sur</option>
-        <option value="isabela">Isabela</option>
-        <option value="kalinga">Kalinga</option>
-        <option value="la_union">La Union</option>
-        <option value="marinduque">Marinduque</option>
-        <option value="masbate">Masbate</option>
-        <option value="mountain_province">Mountain Province</option>
-        <option value="nueva_ecija">Nueva Ecija</option>
-        <option value="nueva_vizcaya">Nueva Vizcaya</option>
-        <option value="occidental_mindoro">Occidental Mindoro</option>
-        <option value="oriental_mindoro">Oriental Mindoro</option>
-        <option value="palawan">Palawan</option>
-        <option value="pangasinan">Pangasinan</option>
-        <option value="quirino">Quirino</option>
-        <option value="quezon">Quezon</option>
-        <option value="romblon">Romblon</option>
-        <option value="sorsogon">Sorsogon</option>
-        <option value="tarlac">Tarlac</option>
-        <option value="zambales">Zambales</option>
-    </optgroup>
-
-    <optgroup label="Visayas">
-        <option value="aklan">Aklan</option>
-        <option value="antique">Antique</option>
-        <option value="biliran">Biliran</option>
-        <option value="bohol">Bohol</option>
-        <option value="capiz">Capiz</option>
-        <option value="cebu">Cebu</option>
-        <option value="eastern_samar">Eastern Samar</option>
-        <option value="guimaras">Guimaras</option>
-        <option value="iloilo">Iloilo</option>
-        <option value="leyte">Leyte</option>
-        <option value="negros_occidental">Negros Occidental</option>
-        <option value="negros_oriental">Negros Oriental</option>
-        <option value="northern_samar">Northern Samar</option>
-        <option value="samar">Samar</option>
-        <option value="siquijor">Siquijor</option>
-        <option value="southern_leyte">Southern Leyte</option>
-    </optgroup>
-
-    <optgroup label="Mindanao">
-        <option value="agusan_del_norte">Agusan del Norte</option>
-        <option value="agusan_del_sur">Agusan del Sur</option>
-        <option value="basilan">Basilan</option>
-        <option value="bukidnon">Bukidnon</option>
-        <option value="camiguin">Camiguin</option>
-        <option value="compostela_valley">Compostela Valley</option>
-        <option value="cotabato">Cotabato</option>
-        <option value="davao_del_norte">Davao del Norte</option>
-        <option value="davao_del_sur">Davao del Sur</option>
-        <option value="davao_occidental">Davao Occidental</option>
-        <option value="davao_oriental">Davao Oriental</option>
-        <option value="dinagat_islands">Dinagat Islands</option>
-        <option value="lanao_del_norte">Lanao del Norte</option>
-        <option value="lanao_del_sur">Lanao del Sur</option>
-        <option value="maguindanao">Maguindanao</option>
-        <option value="misamis_occidental">Misamis Occidental</option>
-        <option value="misamis_oriental">Misamis Oriental</option>
-        <option value="sarangani">Sarangani</option>
-        <option value="south_cotabato">South Cotabato</option>
-        <option value="sultan_kudarat">Sultan Kudarat</option>
-        <option value="sulu">Sulu</option>
-        <option value="surigao_del_norte">Surigao del Norte</option>
-        <option value="surigao_del_sur">Surigao del Sur</option>
-        <option value="tawi_tawi">Tawi-Tawi</option>
-        <option value="zamboanga_del_norte">Zamboanga del Norte</option>
-        <option value="zamboanga_del_sur">Zamboanga del Sur</option>
-        <option value="zamboanga_sibugay">Zamboanga Sibugay</option>
-    </optgroup>
-</select>
+<div class="label-dropdown">
+	
+    <div class="content">
     
-    <br />
+    <label for="location">Delivery Location:</label>
+    <select id="location" onchange="calculateShipping()">
+        <option value="">Select Location</option>
+
+        <optgroup label="Greater Manila Area">
+            <option value="metro_manila">Metro Manila</option>
+            <option value="bulacan">Bulacan</option>
+            <option value="cavite">Cavite</option>
+            <option value="laguna">Laguna</option>
+            <option value="rizal">Rizal</option>
+        </optgroup>
+
+        <optgroup label="Luzon">
+            <option value="abra">Abra</option>
+            <option value="apayao">Apayao</option>
+            <option value="aurora">Aurora</option>
+            <option value="bataan">Bataan</option>
+            <option value="batangas">Batangas</option>
+            <option value="batanes">Batanes</option>
+            <option value="benguet">Benguet</option>
+            <option value="cagayan">Cagayan</option>
+            <option value="camarines_norte">Camarines Norte</option>
+            <option value="camarines_sur">Camarines Sur</option>
+            <option value="catanduanes">Catanduanes</option>
+            <option value="ifugao">Ifugao</option>
+            <option value="ilocos_norte">Ilocos Norte</option>
+            <option value="ilocos_sur">Ilocos Sur</option>
+            <option value="isabela">Isabela</option>
+            <option value="kalinga">Kalinga</option>
+            <option value="la_union">La Union</option>
+            <option value="marinduque">Marinduque</option>
+            <option value="masbate">Masbate</option>
+            <option value="mountain_province">Mountain Province</option>
+            <option value="nueva_ecija">Nueva Ecija</option>
+            <option value="nueva_vizcaya">Nueva Vizcaya</option>
+            <option value="occidental_mindoro">Occidental Mindoro</option>
+            <option value="oriental_mindoro">Oriental Mindoro</option>
+            <option value="palawan">Palawan</option>
+            <option value="pangasinan">Pangasinan</option>
+            <option value="quirino">Quirino</option>
+            <option value="quezon">Quezon</option>
+            <option value="romblon">Romblon</option>
+            <option value="sorsogon">Sorsogon</option>
+            <option value="tarlac">Tarlac</option>
+            <option value="zambales">Zambales</option>
+        </optgroup>
+
+        <optgroup label="Visayas">
+            <option value="aklan">Aklan</option>
+            <option value="antique">Antique</option>
+            <option value="biliran">Biliran</option>
+            <option value="bohol">Bohol</option>
+            <option value="capiz">Capiz</option>
+            <option value="cebu">Cebu</option>
+            <option value="eastern_samar">Eastern Samar</option>
+            <option value="guimaras">Guimaras</option>
+            <option value="iloilo">Iloilo</option>
+            <option value="leyte">Leyte</option>
+            <option value="negros_occidental">Negros Occidental</option>
+            <option value="negros_oriental">Negros Oriental</option>
+            <option value="northern_samar">Northern Samar</option>
+            <option value="samar">Samar</option>
+            <option value="siquijor">Siquijor</option>
+            <option value="southern_leyte">Southern Leyte</option>
+        </optgroup>
+
+        <optgroup label="Mindanao">
+            <option value="agusan_del_norte">Agusan del Norte</option>
+            <option value="agusan_del_sur">Agusan del Sur</option>
+            <option value="basilan">Basilan</option>
+            <option value="bukidnon">Bukidnon</option>
+            <option value="camiguin">Camiguin</option>
+            <option value="compostela_valley">Compostela Valley</option>
+            <option value="cotabato">Cotabato</option>
+            <option value="davao_del_norte">Davao del Norte</option>
+            <option value="davao_del_sur">Davao del Sur</option>
+            <option value="davao_occidental">Davao Occidental</option>
+            <option value="davao_oriental">Davao Oriental</option>
+            <option value="dinagat_islands">Dinagat Islands</option>
+            <option value="lanao_del_norte">Lanao del Norte</option>
+            <option value="lanao_del_sur">Lanao del Sur</option>
+            <option value="maguindanao">Maguindanao</option>
+            <option value="misamis_occidental">Misamis Occidental</option>
+            <option value="misamis_oriental">Misamis Oriental</option>
+            <option value="sarangani">Sarangani</option>
+            <option value="south_cotabato">South Cotabato</option>
+            <option value="sultan_kudarat">Sultan Kudarat</option>
+            <option value="sulu">Sulu</option>
+            <option value="surigao_del_norte">Surigao del Norte</option>
+            <option value="surigao_del_sur">Surigao del Sur</option>
+            <option value="tawi_tawi">Tawi-Tawi</option>
+            <option value="zamboanga_del_norte">Zamboanga del Norte</option>
+            <option value="zamboanga_del_sur">Zamboanga del Sur</option>
+            <option value="zamboanga_sibugay">Zamboanga Sibugay</option>
+        </optgroup>
+    </select>
+
+	</div>
+
+</div>
     
-    <label for="shirts"># of Shirts Ordered:</label>
-<select id="shirts" onchange="calculateShipping()">
-    <option value="">Select Quantity</option>
-    <option value="1-2">1-2 Shirts</option>
-    <option value="3-4">3-4 Shirts</option>
-    <option value="5-6">5-6 Shirts</option>
-</select>
+<div class="label-dropdown">
+	<div class="content">
+        <label for="shirts"># of Shirts Ordered:</label>
+    <select id="shirts" onchange="calculateShipping()">
+        <option value="">Select Quantity</option>
+        <option value="1-2">1-2 Shirts</option>
+        <option value="3-4">3-4 Shirts</option>
+        <option value="5-6">5-6 Shirts</option>
+    </select>
+	</div>
+</div>
 
 <p>Shipping fee is <span id="shippingFee">₱0.00</span></p>
 
