@@ -6,14 +6,32 @@
     <title>Shipping Fee Cost</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Inter, sans-serif;
             padding: 20px;
         }
         select, p {
             margin-top: 10px;
             font-size: 16px;
+            display: block;
+            text-align: center;
         }
+        label {
+        	font-weight:bold;
+            display: block;
+            text-align: center;
+        }
+        select {
+            color: white;
+            height: 2.5em;
+            min-width: 100%;
+    		max-width: 100%;
+            background-color: #24243d;
+            border-color: #b8bdc9;
+            margin-bottom: 1em;
+        }
+        
     </style>
+    <link id="custom-font" type="text/css" rel="stylesheet" href="//cdn.jotfor.ms/fonts/?family=Inter">
 </head>
 <body>
     
@@ -114,7 +132,7 @@
     </optgroup>
 </select>
     
-    <br>
+    <br />
     
     <label for="shirts"># of Shirts Ordered:</label>
 <select id="shirts" onchange="calculateShipping()">
